@@ -4,7 +4,7 @@ query = (spark.readStream
       .option("subscribe", "npc_transactions")
       .option("kafka.security.protocol", "SASL_SSL")
       .option("kafka.sasl.mechanism", "PLAIN")
-      .option("kafka.sasl.jaas.config", 'kafkashaded.org.apache.kafka.common.security.plain.PlainLoginModule required username="KK5AE5WBMLIPKT7J" password="cfltAlG85cdkM17dUtfzrE4Ve2lXKVt5ksfW8x9pSnoVP0A+1ZVKjC12GTmfZ8Fw";')
+      .option("kafka.sasl.jaas.config", 'kafkashaded.org.apache.kafka.common.security.plain.PlainLoginModule required username="user" password="pwd";')
       .option("startingOffsets", "earliest")
       .load()
       .selectExpr("CAST(key AS STRING) as key", "CAST(value AS STRING) as value", "topic", "partition", "offset", "timestamp", "timestampType")

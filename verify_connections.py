@@ -40,8 +40,8 @@ def test_kafka_connection():
             'bootstrap.servers': 'pkc-oxqxx9.us-east-1.aws.confluent.cloud:9092',
             'security.protocol': 'SASL_SSL',
             'sasl.mechanism': 'PLAIN',
-            'sasl.username': 'KK5AE5WBMLIPKT7J',
-            'sasl.password': 'cfltAlG85cdkM17dUtfzrE4Ve2lXKVt5ksfW8x9pSnoVP0A+1ZVKjC12GTmfZ8Fw',
+            'sasl.username': 'user',
+            'sasl.password': 'pwd',
             'client.id': 'test-client'
         }
         
@@ -61,7 +61,7 @@ def test_mongodb_connection():
     try:
         from pymongo import MongoClient
         
-        mongo_uri = 'mongodb+srv://ankush_db_user:WHBr5CO4JJ7cYmw2@clusternpcbank.lnwuht2.mongodb.net/'
+        mongo_uri = 'mongodb+srv://user:pwd@clusternpcbank.lnwuht2.mongodb.net/'
         
         # SSL/TLS configuration for MongoDB Atlas
         client = MongoClient(

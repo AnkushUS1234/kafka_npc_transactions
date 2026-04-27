@@ -22,8 +22,8 @@ KAFKA_CONFIG = {
     'bootstrap.servers': 'pkc-oxqxx9.us-east-1.aws.confluent.cloud:9092',
     'security.protocol': 'SASL_SSL',
     'sasl.mechanism': 'PLAIN',
-    'sasl.username': 'KK5AE5WBMLIPKT7J',
-    'sasl.password': 'cfltAlG85cdkM17dUtfzrE4Ve2lXKVt5ksfW8x9pSnoVP0A+1ZVKjC12GTmfZ8Fw',
+    'sasl.username': 'user',
+    'sasl.password': 'pwd',
     'group.id': 'banking-mongodb-consumer',
     'auto.offset.reset': 'earliest',
     'enable.auto.commit': True
