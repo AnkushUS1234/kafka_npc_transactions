@@ -1,0 +1,16 @@
+query = (spark.readStream
+  .format("kafka")
+      .option("kafka.bootstrap.servers", "pkc-oxqxx9.us-east-1.aws.confluent.cloud:9092")
+      .option("subscribe", "npc_transactions")
+      .option("kafka.security.protocol", "SASL_SSL")
+      .option("kafka.sasl.mechanism", "PLAIN")
+      .option("kafka.sasl.jaas.config", 'kafkashaded.org.apache.kafka.common.security.plain.PlainLoginModule required username="KK5AE5WBMLIPKT7J" password="cfltAlG85cdkM17dUtfzrE4Ve2lXKVt5ksfW8x9pSnoVP0A+1ZVKjC12GTmfZ8Fw";')
+      .option("startingOffsets", "earliest")
+      .load()
+      .selectExpr("CAST(key AS STRING) as key", "CAST(value AS STRING) as value", "topic", "partition", "offset", "timestamp", "timestampType")
+      .writeStream
+      .format("delta")
+      .trigger(availableNow=True)
+      .option("checkpointLocation", "/Volumes/workspace/default/kafka/kafka_checkpoint")
+      .toTable("my_kafka_npc_transaction_stream")
+)
